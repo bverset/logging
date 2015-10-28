@@ -18,7 +18,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     private CacheManager cacheManager;
-    String name, email, cel, phone;
+    String ids, name, email, cel, phone;
+    Long id;
     private CoordinatorLayout coordinatorLayout;
     @Bind(R.id.tv_name)TextView tvName;
     @Bind(R.id.tv_email)TextView tvEmail;
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         Contact c = new Contact(null, null, null, null);
         cacheManager.getUser(c);
-        tvName.setText("Name: " + c.getName());
+        ids = c.getIds();
+        name = c.getName();
+        tvName.setText("Name: " + c.getName()+ " id="+ids);
         tvEmail.setText("Email: "+c.getEmail());
         tvCel.setText("Cel: "+c.getCel());
         tvPhone.setText("Phone: "+c.getPhone());
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_eliminar)
     public void clickeliminar(View v) {
-        cacheManager.DelUser();
+        cacheManager.DelUser(name);
         this.clickfin(v);
     }
     @OnClick(R.id.btn_fin)

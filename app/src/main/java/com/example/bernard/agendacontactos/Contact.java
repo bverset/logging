@@ -1,12 +1,14 @@
 package com.example.bernard.agendacontactos;
 
+import java.util.UUID;
+
 /**
  * Created by Bernard on 28/10/2015.
  */
 public class Contact {
 
     private long id;
-    private String name, email, cel, phone, picture, group;
+    private String ids, name, email, cel, phone, picture, group;
 
 
     public Contact(String name, String email, String cel, String phone) {
@@ -22,6 +24,14 @@ public class Contact {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getIds() {
+        return ids;
+    }
+
+    public void setIds(String ids) {
+        this.ids = ids;
     }
 
     public String getName() {

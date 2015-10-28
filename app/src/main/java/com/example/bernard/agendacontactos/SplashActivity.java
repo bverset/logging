@@ -1,8 +1,10 @@
 package com.example.bernard.agendacontactos;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.bernard.agendacontactos.Preferences.CacheManager;
@@ -21,14 +23,18 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i;
-                if(cacheManager.isloggin()){
-                    i = new Intent(SplashActivity.this, MainActivity.class);
-                }
-                else {
-                    i = new Intent(SplashActivity.this, LoginActivity.class);
-                }
-                startActivity(i);
+                cacheManager.clear();
+                    if(cacheManager.isloggin()){
+                        i = new Intent(SplashActivity.this, MainActivity.class);
+                    }
+                    else {
+                        i = new Intent(SplashActivity.this, LoginActivity.class);
+                    }
+                    startActivity(i);
+                    finish();  // revient sortir de cette activité
+
             }
+
         }, 3000);
     }
 }
