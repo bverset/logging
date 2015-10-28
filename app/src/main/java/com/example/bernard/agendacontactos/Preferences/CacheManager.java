@@ -3,11 +3,12 @@ package com.example.bernard.agendacontactos.Preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+
 import com.example.bernard.agendacontactos.Contact;
 
 
 public class CacheManager {
-    private final static int PRIVATE_MODE = 0;  // perdonne ne peut lire privé
+    private final static int PRIVATE_MODE = 0;  // personne ne peut lire privé
     private final static String PREF_NAME = "app.com.name.preferences";  // ou se va garder les données
 
     private SharedPreferences pref;
@@ -27,10 +28,17 @@ public class CacheManager {
         mEditor.commit();
 
     }
-
+    // coordinatorLayout à mettre dans main
+    // faire cette méthode pour lire les données
     public void getUser(Contact contact){
-        // coordinatorLayout à mettre dans main
-        // faire cette méthode pour lire les données
+        contact.setName(pref.getString(KeyShared.KEY_NAME, "" ));
+        contact.setEmail(pref.getString(KeyShared.KEY_EMAIL, ""));
+        contact.setCel(pref.getString(KeyShared.KEY_CEL, ""));
+        contact.setPhone(pref.getString(KeyShared.KEY_PHONE, ""));
+    }
+
+    public void DelUser(){
+        mEditor.clear();
     }
 
     public boolean isloggin(){
