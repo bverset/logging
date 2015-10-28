@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AgendaContactos</string>
+	<string name="app_name">AgendaContactos</string>
+	<string name="app_error">Error, todos los campos no estan llenos</string>
 </resources>
